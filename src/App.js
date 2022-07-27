@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react'
+import {Routes, Route} from 'react-router-dom'
+import Home from './pages/Home';
+
 
 function App() {
   const [foodCategories, setFoodCategories] = useState([])
@@ -12,7 +15,9 @@ function App() {
   console.log(foodCategories)
   return (
     <div>
-      
+      <Routes>
+          <Route path='/' element={ <Home foodCategories={foodCategories}></Home>}/>
+      </Routes>
     </div>
   );
 }

@@ -12,6 +12,7 @@ const NavBarContainer = styled.div`
 const FoodCategories = ({foodCategories}) => {
     return (
         <div>
+            
             {foodCategories.map (foodCategory => {
                 return (
                     <NavBarContainer>
