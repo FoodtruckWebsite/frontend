@@ -6,17 +6,17 @@ import Home from './pages/Home';
 
 
 function App() {
-  const [foodCategories, setFoodCategories] = useState([])
+  const [trucks, setTrucks] = useState([])
   useEffect(() => {
-    fetch('http://localhost:3000/truck')
+    fetch('http://localhost:8000/truck')
     .then(res => res.json)
-    .then(trucks => setFoodCategories(trucks))
+    .then(items => setTrucks(items))
   }, [])
-  console.log(foodCategories)
+  console.log(trucks)
   return (
     <div>
       <Routes>
-          <Route path='/' element={ <Home foodCategories={foodCategories}></Home>}/>
+          <Route path='/' element={ <Home trucks = {trucks}/>}/>
       </Routes>
     </div>
   );

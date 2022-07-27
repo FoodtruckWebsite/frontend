@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import FoodCategories from '../components/navbar'
+import Trucks from '../components/Trucks'
+import Navbar from '../components/Navbar'
 
-const Home = ({foodCategories}) => {
+const Home = ({trucks}) => {
     return (
     <div>
-        <FoodCategories foodCategories={foodCategories}/>
+        <Navbar></Navbar>
+        {/* <Trucks trucks ={trucks}/> */}
     </div>
     )
 }
