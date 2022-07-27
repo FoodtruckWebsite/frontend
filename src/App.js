@@ -7,7 +7,7 @@ function App() {
   const [ trucks, setTrucks ] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/trucks')
+    fetch('http://localhost:3000/NOW')
     .then( res => res.json())
     .then( trucks => setTrucks(trucks))
   }, [])
