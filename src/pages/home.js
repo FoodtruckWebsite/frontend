@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Trucks from '../components/Trucks'
+import TrucksCategories from '../components/TrucksCategories'
 import Navbar from '../components/Navbar'
 
 const Home = ({trucks}) => {

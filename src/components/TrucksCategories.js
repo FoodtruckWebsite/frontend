@@ -9,7 +9,7 @@ const TrucksContainer = styled.div`
 
 `
 
-const Trucks = ({trucks}) => {
+const TrucksCategories = ({trucks}) => {
     return (
         <div>
             {trucks.map((truck) => {
@@ -25,4 +25,4 @@ const Trucks = ({trucks}) => {
     );
 }
 
-export default Trucks
+export default TrucksCategories
