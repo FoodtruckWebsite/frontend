@@ -1,28 +1,37 @@
-import React from 'react'
+
 import Truck from './Truck'
+import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+import { Params } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+
+
+
+
+
+
 
 const Trucks = (props) => {
-    let { trucks } = props
+
+
+    const [trucks, setTrucks] = useState([])
+
+
+
+    useEffect(() => {
+    fetch(`http://localhost:8000/truck`)
+    .then(res => res.json())
+    .then(data => setTrucks(data))
+    },[])
+    console.log(trucks)
+
   return (
     <div>
-        <h1>Trucks</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>tags</th>
-                    <th>Rating</th>
-                    <th>Price Range</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                { trucks.map( ( trucks ) => {
-                    return <Truck key={trucks._id}/>
+        <h1>
+            { trucks.map( ( trucks ) => {
+                    return <Link to ={`/trucks/${trucks._id}`}>{trucks.name}</Link>
                 })}
-            </tbody>
-        </table>
+        </h1>
     </div>
   )
 }
