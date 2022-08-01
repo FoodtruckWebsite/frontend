@@ -1,13 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/Home';
 import Login from './pages/Login'
 import Navbar from './components/Navbar'
+import { AuthContext }  from './services/AuthContext'
 
 
 function App() {
+  // pulling the states and functions from AuthContext
+  const {user, setUser, isAuthenticated, setIsAunthenticated} = useContext(AuthContext)
+
+  console.log(user)
+  console.log(isAuthenticated)
+
   const [trucks, setTrucks] = useState([])
   useEffect(() => {
     fetch('http://localhost:8000/truck')
