@@ -19,7 +19,7 @@ const Trucks = (props) => {
 
 
     useEffect(() => {
-    fetch(`http://localhost:8000/truck`)
+    fetch(`http://localhost:3000/truck`)
     .then(res => res.json())
     .then(data => setTrucks(data))
     },[])
@@ -29,7 +29,13 @@ const Trucks = (props) => {
     <div>
         <h1>
             { trucks.map( ( trucks ) => {
-                    return <Link to ={`/trucks/${trucks._id}`}>{trucks.name}</Link>
+                    return <Link to ={`/trucks/${trucks._id}`}>
+                        {trucks.name}
+                        {trucks.category}<br/>
+                        {trucks.location}<br/>
+                        {trucks.rating}<br/>
+                        {trucks.priceRange}
+                    </Link>
                 })}
         </h1>
     </div>
