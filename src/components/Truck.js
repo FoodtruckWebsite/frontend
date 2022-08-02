@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { Params, useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import { Params, useParams, useNavigate, Link } from 'react-router-dom'
 import { alignPropType } from 'react-bootstrap/esm/types'
 import styled from 'styled-components'
 
@@ -22,7 +21,7 @@ const Truck = ({trucks}) => {
     setTrucks(trucks.filter(truck => truck._id !== truckId))
   }
   const deleteTruck = (truckId) => {
-    axios.delete(`http://localhost:8000/truck/${truckId}`)
+    axios.delete(`http://localhost:3000/truck/${truckId}`)
     .then(res => {
       updateTruckState(truckId)
       navigate('/')
@@ -30,7 +29,7 @@ const Truck = ({trucks}) => {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:8000/truck/${truckId}`)
+    fetch(`http://localhost:3000/truck/${truckId}`)
     .then(res => res.json())
     .then(data => setTrucks(data))
     },[])
@@ -49,7 +48,7 @@ console.log(truckId)
 
 export default Truck
 
-// // <tr key={trucks.id} >
+        // <tr key={trucks.id} >
         //     <td>{trucks.name}</td>
         //     <td>{trucks.catagory}</td>
         //     <td>{trucks.tags}</td>

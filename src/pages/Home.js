@@ -10,7 +10,7 @@ const Home = ({trucks}) => {
     return (
     <div>
         <Navbar></Navbar>
-        <Trucks trucks ={trucks}/>
+        <Trucks/>
         {/* <Truck></Truck> */}
         <Footer></Footer>
 
