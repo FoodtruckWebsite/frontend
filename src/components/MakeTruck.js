@@ -30,7 +30,7 @@ const MakeTruck = ({setTrucks, trucks}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:8000/truck', formData)
+    axios.post('http://localhost:3000/truck', formData)
     .then(res => {
         setFormData(initialState)
         addTruck(res.data)
