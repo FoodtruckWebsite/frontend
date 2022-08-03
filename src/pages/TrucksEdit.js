@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react'
+
 import { useParams, useNavigate } from 'react-router-dom'
+
 import axios from 'axios'
 import styled from 'styled-components'
 
 const StyledForm = styled.form`
+
 
 `
 
@@ -22,13 +25,15 @@ const TrucksEdit = ({ setTrucks }) => {
 
     const handleChange = (e) => {
         console.log(e.target)
+
+
         setFormData({...formData, [e.target.id] : e.target.value})
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
-        axios.put(`http://localhost:8000/trucks/${id}`,formData)
+        axios.put(`http://localhost:8000/truck/edit/${truckId}`,formData)
         .then(res => {
             setFormData(initialState)
             setTrucks(res.data)
@@ -38,7 +43,8 @@ const TrucksEdit = ({ setTrucks }) => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/trucks/${id}`)
+
+        axios.get(`http://localhost:8000/trucks/edit/${truckId}`)
         .then(res => {
             setFormData(res.data)
         })
@@ -52,8 +58,10 @@ const TrucksEdit = ({ setTrucks }) => {
                 <input id='name' name='name' type='text' value={formData?.name} onChange={handleChange} />
             </div>
             <div>
-                <label htmlFor='catagory'>Category</label>
-                <input id='catagory' name='catagory' type='text' value={formData?.catagory} onChange={handleChange} />
+
+                <label htmlFor='category'>Category</label>
+                <input id='category' name='category' type='text' value={formData?.category} onChange={handleChange}/>
+
             </div>
             <div>
                 <label htmlFor='location'>Location</label>
@@ -70,3 +78,4 @@ const TrucksEdit = ({ setTrucks }) => {
 }
 
 export default TrucksEdit
+
