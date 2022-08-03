@@ -8,6 +8,7 @@ import Trucks from './components/Trucks';
 import MakeTruck from './components/MakeTruck';
 import TrucksEdit from './pages/TrucksEdit';
 
+
 function App() {
   const [trucks, setTrucks] = useState([])
 
@@ -27,7 +28,9 @@ function App() {
           <Route path='/trucks/:truckId' element={ <Truck truck = {trucks} setTrucks={setTrucks}/>}/>
           <Route path='/trucks' element={ <Trucks trucks = {trucks} setTrucks={setTrucks}/>}/>
           <Route path='/trucks/new' element={ <MakeTruck trucks = {trucks} setTrucks={setTrucks}/>}/>
-          <Route path='/trucks/edit/:truckId' element={ <TrucksEdit trucks = {trucks} setTrucks={setTrucks}/>}/>
+
+          <Route path='/trucks/:truckId/edit' element={ <TrucksEdit trucks = {trucks} setTrucks={setTrucks}/>}/>
+
       </Routes>
     </div>
   );

@@ -6,14 +6,20 @@ import Truck from '../components/Truck'
 import Trucks from '../components/Trucks'
 import Footer from '../components/Footer'
 
+const HomeContainer = styled.div`
+    background-image: url("https://i.imgur.com/tx4DmXl.png");
+    background-repeat: no-repeat;
+`
+
+
 const Home = ({trucks}) => {
     return (
-    <div>
-        <Navbar></Navbar>
-        <Footer></Footer>
-        <Trucks trucks ={trucks}/>
-        {/* <Truck></Truck> */}
-    </div>
+    <HomeContainer>
+        <Navbar/>
+        <Trucks trucks={trucks}/>
+        <Footer/>
+
+    </HomeContainer>
     )
 }
 

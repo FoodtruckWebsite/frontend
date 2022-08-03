@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import { useParams , useNavigate } from 'react-router-dom'
+
+import { useParams, useNavigate } from 'react-router-dom'
+
 import axios from 'axios'
 import styled from 'styled-components'
 
 const StyledForm = styled.form`
-width : 100%;
+
+
 `
 
 const TrucksEdit = ({ setTrucks }) => {
-    let {truckId} = useParams()
+    let {id} = useParams()
     let navigate = useNavigate()
 
     const initialState = {
@@ -22,6 +25,7 @@ const TrucksEdit = ({ setTrucks }) => {
 
     const handleChange = (e) => {
         console.log(e.target)
+
 
         setFormData({...formData, [e.target.id] : e.target.value})
     }
@@ -39,6 +43,7 @@ const TrucksEdit = ({ setTrucks }) => {
     }
 
     useEffect(() => {
+
         axios.get(`http://localhost:8000/trucks/edit/${truckId}`)
         .then(res => {
             setFormData(res.data)
@@ -53,8 +58,10 @@ const TrucksEdit = ({ setTrucks }) => {
                 <input id='name' name='name' type='text' value={formData?.name} onChange={handleChange} />
             </div>
             <div>
+
                 <label htmlFor='category'>Category</label>
                 <input id='category' name='category' type='text' value={formData?.category} onChange={handleChange}/>
+
             </div>
             <div>
                 <label htmlFor='location'>Location</label>
@@ -71,3 +78,4 @@ const TrucksEdit = ({ setTrucks }) => {
 }
 
 export default TrucksEdit
+

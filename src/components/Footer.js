@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const FooterContainer = styled.div`
-    background-color : yellow;
+    background-color : #FEEB75;
     width : 100%;
     text-decoration : underline;
     padding: 1px;
