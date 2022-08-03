@@ -11,7 +11,7 @@ const StyledForm = styled.form`
 `
 
 const TrucksEdit = ({ setTrucks }) => {
-    let {id} = useParams()
+    let {truckId} = useParams()
     let navigate = useNavigate()
 
     const initialState = {
