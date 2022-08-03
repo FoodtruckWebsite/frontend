@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 const Home = ({trucks}) => {
     return (
     <div>
+        home
         {/* <Trucks trucks ={trucks}/> */}
     </div>
     )

@@ -38,19 +38,23 @@ const Register = () => {
     <form onSubmit={submitHandler}>
         <div>
             <label htmlFor='username'>Username</label>
-            <input type="text" placeholder="Username" name="username" onChange={changeHandler}/>
+            <input type="text" id="username" placeholder="Username" name="username" onChange={changeHandler}/>
         </div>
         <div>
             <label htmlFor='password'>Password</label>
-            <input type="password" placeholder="Password" name="password" onChange={changeHandler}/>
+            <input type="password" id="password" placeholder="Password" name="password" onChange={changeHandler}/>
         </div>
         <div>
             <label htmlFor='email'>Email</label>
-            <input type="text" placeholder="Email" name="email" onChange={changeHandler}/>
+            <input type="text" id="email" placeholder="Email" name="email" onChange={changeHandler}/>
         </div>
         <div>
-            <label htmlFor='role'>Role</label>
-            <input type="text" placeholder="owner / user" name="role" onChange={changeHandler}/>
+            <label htmlFor='role'>User</label>
+            <input type="radio" id="user-role" name="role" value="user" onChange={changeHandler}/>
+        </div>
+        <div>
+            <label htmlFor='role'>Owner</label>
+            <input type="radio" id="owner-role" name="role" value="owner" onChange={changeHandler}/>
         </div>
         <div >
             <button type='submit'>submit</button>

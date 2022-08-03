@@ -18,6 +18,11 @@ const NavBarContainer = styled.div`
     li{
         list-style: none;
     }
+    button{
+        background-color: Transparent;
+        border: none;
+        font-size: 16px
+    }
 
 
 `
@@ -30,48 +35,23 @@ const Navbar = () => {
 
     console.log(user)
 
-    const logoutHandler = () => {
-        AuthService.logout().then(data => {
-            if (data.success) {
-                setUser(data.user)
-                setIsAunthenticated(false)
-                navigate('/')
-            }
-        })
-    }
-
-const unauthenticated = () => {
-    return (
-        <>
-            <h4>Hello Guest</h4>
-        </>
-    )
-}
-
-const authenticated = () => {
-    return (
-        <>
-            <h4>{user.username}</h4>
-            <button onClick={logoutHandler}>logout</button>
-        </>
-    )
-}
-
     return (
         <NavBarContainer>
-            
             <ul>
-                
-                <li><Link to='/login'>Login</Link> </li>
-                <li><Link to='/'>Noms On Wheels</Link> </li>
-                <img src="https://imgur.com/a/FnUD8mc" alt="logo"></img>
-                <li><Link to='/location'>Change Location</Link> </li>
-                <li><Link to='/order'>Order Now</Link> </li>
-                <h4>
-                    {!isAuthenticated ? unauthenticated() : authenticated()}
-                </h4>
+            { user?.role === 'owner' || user?.role === 'user' ? <li>Welcome {user.user}</li> : <li><Link to='/login'>Login</Link></li>}
+            { user?.role === 'owner' || user?.role === 'user' ? <li onClick={() => {
+                AuthService.logout().then(data => {
+                    setUser(data.user)
+                    setIsAunthenticated(false)
+                    window.location.reload()
+                })
+                .then(navigate=('/'))
+            }}>Logout</li> : null}
+            { user?.role === 'owner' ? <li><Link to='/trucks/new'>Add Your Truck</Link></li> : null}
+            <li><Link to='/'>Noms On Wheels</Link> </li>
+            <img src="https://imgur.com/a/FnUD8mc" alt="logo"></img>
+            <li><Link to='/location'>Change Location</Link> </li>
             </ul>
-            
         </NavBarContainer>
     );
 }
