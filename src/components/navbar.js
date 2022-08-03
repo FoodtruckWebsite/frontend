@@ -33,8 +33,6 @@ const Navbar = () => {
 
     const {user, setUser, isAuthenticated, setIsAunthenticated} = useContext(AuthContext)
 
-    console.log(user)
-
     return (
         <NavBarContainer>
             <ul>

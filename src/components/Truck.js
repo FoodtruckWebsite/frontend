@@ -1,19 +1,47 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import { Params, useParams, useNavigate, Link } from 'react-router-dom'
+import { alignPropType } from 'react-bootstrap/esm/types'
+import styled from 'styled-components'
 
-const Truck = ({ truck, index }) => {
-    
+const Button = styled.button`
+`
+
+
+
+
+const Truck = ({trucks}) => {
+
+  const navigate = useNavigate();
+
+  let {truckId} = useParams();
+  const [truck, setTrucks] = useState([])
+
+  const updateTruckState = (id) => {
+    setTrucks(trucks.filter(truck => truck._id !== truckId))
+  }
+  const deleteTruck = (truckId) => {
+    axios.delete(`http://localhost:3000/truck/${truckId}`)
+    .then(res => {
+      updateTruckState(truckId)
+      navigate('/')
+    })
+  }
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/truck/${truckId}`)
+    .then(res => res.json())
+    .then(data => setTrucks(data))
+    },[])
+
+console.log(truckId)
   return (
     <div>
-        <tr key={truck.id} >
-            <td>{truck.name}</td>
-            <td>{truck.catagory}</td>
-            <td>{truck.tags}</td>
-            <td>{truck.rating}</td>
-            <td>{truck.menu}</td>
-            <td>{truck.priceRange}</td>
-            <td>{truck.location}</td>
-            <td>{truck.logo}</td>
-        </tr>
+      <h1>
+        {truck.name}
+        <Button onClick={() => deleteTruck(truck._id)}>Delete</Button>
+      </h1>
+        
     </div>
   )
 }

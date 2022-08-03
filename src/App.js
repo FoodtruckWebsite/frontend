@@ -19,10 +19,9 @@ function App() {
     fetch('http://localhost:8000/truck')
     .then(res => res.json())
     .then(data => setTrucks(data))
-    },[])
-    // console.log(trucks)
+    },[]) 
 
- 
+    console.log(trucks)
   
   return (
     <div>

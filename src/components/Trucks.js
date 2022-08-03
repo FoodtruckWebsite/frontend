@@ -1,29 +1,49 @@
-import React from 'react'
 import Truck from './Truck'
+import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+import { Params } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import styled from 'styled-components'
+
+const TrucksContainer = styled.div`
+  background-image: "https://i.imgur.com/tx4DmXl.png";
+  h1{
+    text-align: center;
+    text-decoration: none;
+    padding: 0%;
+  }
+  h2{
+    text-decoration: none;
+    padding: 0%;
+  }
+`
 
 const Trucks = (props) => {
-    let { trucks } = props
+
+    const [trucks, setTrucks] = useState([])
+
+    useEffect(() => {
+    fetch(`http://localhost:3000/truck`)
+    .then(res => res.json())
+    .then(data => setTrucks(data))
+    },[])
+    console.log(trucks)
+
   return (
-    <div>
-        <h1>Trucks</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>tags</th>
-                    <th>Rating</th>
-                    <th>Price Range</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                { trucks.map( ( trucks ) => {
-                    return <Truck key={trucks._id}/>
+    <TrucksContainer>
+        <h1>
+            { trucks.map( ( trucks ) => {
+                    return <Link to ={`/trucks/${trucks._id}`}>
+                        <h2>{trucks.name}</h2>
+                        Category: {trucks.category}<br/>
+                        Current Location: {trucks.location}<br/>
+                        Rating: {trucks.rating}<br/>
+                        Price Range: {trucks.priceRange}<br/>
+                        <br/>
+                    </Link>
                 })}
-            </tbody>
-        </table>
-    </div>
+        </h1>
+    </TrucksContainer>
   )
 }
 
