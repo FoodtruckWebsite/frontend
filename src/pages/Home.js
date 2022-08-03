@@ -6,13 +6,13 @@ import Truck from '../components/Truck'
 import Trucks from '../components/Trucks'
 import Footer from '../components/Footer'
 
+
 const Home = ({trucks}) => {
     return (
     <div>
-        <Navbar></Navbar>
+        <Navbar/>
         <Trucks/>
-        {/* <Truck></Truck> */}
-        <Footer></Footer>
+        <Footer/>
 
     </div>
     )
