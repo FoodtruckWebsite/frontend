@@ -38,12 +38,12 @@ const Navbar = () => {
     return (
         <NavBarContainer>
             <ul>
-            { user?.role === 'owner' || user?.role === 'user' ? <li>Welcome {user.user}</li> : <li><Link to='/login'>Login</Link></li>}
+            { user?.role === 'owner' || user?.role === 'user' ? <li>Welcome {user.username}</li> : <li><Link to='/login'>Login</Link></li>}
             { user?.role === 'owner' || user?.role === 'user' ? <li onClick={() => {
                 AuthService.logout().then(data => {
                     setUser(data.user)
                     setIsAunthenticated(false)
-                    window.location.reload()
+                    window.location.reload(false)
                 })
                 .then(navigate=('/'))
             }}>Logout</li> : null}
