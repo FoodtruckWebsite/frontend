@@ -7,7 +7,8 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 const TrucksContainer = styled.div`
-  background-image: "https://i.imgur.com/tx4DmXl.png";
+  background-image: url("https://i.imgur.com/tx4DmXl.png");
+  background-repeat: no-repeat;
 
   h1{
     text-align: center;
@@ -26,19 +27,8 @@ const TrucksContainer = styled.div`
 
 
 
-const Trucks = (props) => {
+const Trucks = ({trucks}) => {
 
-
-    const [trucks, setTrucks] = useState([])
-
-
-
-    useEffect(() => {
-    fetch(`http://localhost:3000/truck`)
-    .then(res => res.json())
-    .then(data => setTrucks(data))
-    },[])
-    console.log(trucks)
 
   return (
     <TrucksContainer>
