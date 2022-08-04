@@ -37,13 +37,15 @@ const Truck = ({trucks}) => {
     },[])
 
 // console.log(truckId)
-// console.log(truck.tags)
+console.log(truck.menu)
 // const newJoin = truck.menu.join()
 // console.log(newJoin)
   return (
     <div>
       <h1>
         {truck.name} 
+        {/* {truck.menu[0].itemName}
+        {truck.menu[1].itemName} */}
         {isAuthenticated === true && user?.role === 'owner' ? <Button onClick={() => deleteTruck(truck._id)}>Delete</Button> : null}
         {isAuthenticated === true && user?.role === 'owner' ? <Link to='edit'><Button>Update Info</Button></Link> : null}
       </h1>
