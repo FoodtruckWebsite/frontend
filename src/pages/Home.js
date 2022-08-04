@@ -7,8 +7,12 @@ import Trucks from '../components/Trucks'
 import Footer from '../components/Footer'
 
 const HomeContainer = styled.div`
-    background-image: url("https://i.imgur.com/tx4DmXl.png");
-    background-repeat: no-repeat;
+  background-image: url("https://cdn.dribbble.com/users/187497/screenshots/3838836/tacotruck_drib.gif");
+  background-size: cover, 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: blue;
+  margin: 0 auto;
 `
 
 

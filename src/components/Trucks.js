@@ -7,13 +7,22 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 const TrucksContainer = styled.div`
-  background-image: url("https://i.imgur.com/tx4DmXl.png");
-  background-repeat: no-repeat;
+  text-shadow: 2px 3px #354A21;
+  a:link{
+    text-decoration: none;
+    color: blue;
+  }
 
-  h1{
+  a:visited{
+    color: green;
+  }
+
+  link{
     text-align: center;
     text-decoration: none;
     padding: 0%;
+    border-width: 100%;
+    border-color: yellow;
   }
 
   h2{
@@ -35,7 +44,7 @@ const Trucks = ({trucks}) => {
         <h1>
             { trucks.map( ( trucks ) => {
                     return <Link to ={`/trucks/${trucks._id}`}>
-                        <h2>{trucks.name}</h2>
+                        {trucks.name}
                         Category: {trucks.category}<br/>
                         Current Location: {trucks.location}<br/>
                         Rating: {trucks.rating}<br/>
