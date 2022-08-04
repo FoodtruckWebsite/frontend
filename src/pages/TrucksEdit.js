@@ -24,7 +24,6 @@ const TrucksEdit = ({ setTrucks }) => {
     const [formData, setFormData] = useState(initialState)
 
     const handleChange = (e) => {
-        console.log(e.target)
 
 
         setFormData({...formData, [e.target.id] : e.target.value})
@@ -71,7 +70,7 @@ const TrucksEdit = ({ setTrucks }) => {
                 <label htmlFor='rating'>Rating</label>
                 <input id='rating' name='rating' type='text' value={formData?.rating} onChange={handleChange} />
             </div>
-            <input type='submit' value='Edit Truck'/>
+            <input type='submit' value='Update'/>
 
         </StyledForm>
     )

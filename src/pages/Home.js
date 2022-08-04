@@ -15,9 +15,8 @@ const HomeContainer = styled.div`
 const Home = ({trucks}) => {
     return (
     <HomeContainer>
-        <Navbar/>
         <Trucks trucks={trucks}/>
-        <Footer/>
+       
 
     </HomeContainer>
     )
