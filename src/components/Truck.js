@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+import { AuthContext} from '../services/AuthContext'
 import { Params, useParams, useNavigate, Link } from 'react-router-dom'
 import { alignPropType } from 'react-bootstrap/esm/types'
 import styled from 'styled-components'
@@ -12,6 +13,7 @@ const Button = styled.button`
 
 const Truck = ({trucks}) => {
 
+  const {user, setUser, isAuthenticated, setIsAunthenticated} = useContext(AuthContext)
   const navigate = useNavigate();
 
   let {truckId} = useParams();
@@ -34,12 +36,16 @@ const Truck = ({trucks}) => {
     .then(data => setTrucks(data))
     },[])
 
-console.log(truckId)
+// console.log(truckId)
+// console.log(truck.tags)
+// const newJoin = truck.menu.join()
+// console.log(newJoin)
   return (
     <div>
       <h1>
         {truck.name} 
-        <Button onClick={() => deleteTruck(truck._id)}>Delete</Button>
+        {isAuthenticated === true && user?.role === 'owner' ? <Button onClick={() => deleteTruck(truck._id)}>Delete</Button> : null}
+        {isAuthenticated === true && user?.role === 'owner' ? <Link to='edit'><Button>Update Info</Button></Link> : null}
       </h1>
         
     </div>
