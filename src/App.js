@@ -7,6 +7,8 @@ import Truck from './components/Truck';
 import Trucks from './components/Trucks';
 import MakeTruck from './components/MakeTruck';
 import TrucksEdit from './pages/TrucksEdit';
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
           <Route path='/trucks/new' element={ <MakeTruck trucks = {trucks} setTrucks={setTrucks}/>}/>
 
           <Route path='/trucks/:truckId/edit' element={ <TrucksEdit trucks = {trucks} setTrucks={setTrucks}/>}/>
+          <Route path='/login' element={ <Login />}/>
+          <Route path='/register' element={ <Register /> }/>
 
       </Routes>
     </div>
