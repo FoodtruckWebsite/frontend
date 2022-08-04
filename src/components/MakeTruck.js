@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState, useContext } from 'react'
+import AuthService from '../services/AuthService'
+import { AuthContext } from '../services/AuthContext'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -19,6 +21,7 @@ const MakeTruck = ({setTrucks, trucks}) => {
     setTrucks([...trucks, truck])
   }
 
+  const {user, setUser, isAuthenticated, setIsAunthenticated} = useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -36,14 +39,13 @@ const MakeTruck = ({setTrucks, trucks}) => {
         addTruck(res.data)
         navigate('/', {replace: true})
     })
+}
 
-
-
-  }
-
-  
     return (
         <StyledForm onSubmit={handleSubmit}>
+                <div>
+        {isAuthenticated === true && user?.role === 'owner' ? 
+            <div>
             <div>
                 <label htmlFor='name'>Name</label>
                 <input id='name' name='name' type='text' onChange={handleChange}></input>
@@ -61,16 +63,11 @@ const MakeTruck = ({setTrucks, trucks}) => {
                 <input id='rating' name='rating' type='text' onChange={handleChange}></input>
             </div>
             <input type='submit' value='Create Truck' />
+            </div>
+        : <h1>You are not authorized to access page</h1>}
+    </div>
         </StyledForm>
-    
-    
-    
-    
-    
-
     )
-
-
 }
 
 export default MakeTruck

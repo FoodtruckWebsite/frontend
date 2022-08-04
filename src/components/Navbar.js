@@ -1,47 +1,54 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import AuthService from '../services/AuthService'
+import { AuthContext } from '../services/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const NavBarContainer = styled.div`
-    background-color : #FEEB75;
+    background-color : yellow;
     width : 100%;
     text-decoration : underline;
     padding: 1px;
-
     ul{
-        text-decoration: none;
         display: flex;
         justify-content: space-evenly;
-        font-size: 100%;
     }
     li{
         list-style: none;
-        padding: 10% 0;
     }
-
-    img{
-        padding: 0;
-        max-width: 30%;
+    button{
+        background-color: Transparent;
+        border: none;
+        font-size: 16px
     }
-
-
 `
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
+    const {user, setUser, isAuthenticated, setIsAunthenticated} = useContext(AuthContext)
+
     return (
         <NavBarContainer>
-            
             <ul>
-                
-                <li><Link to='/login'>Login</Link> </li>
-                <li><Link to='/'>Noms On Wheels</Link> </li>
-                <img src="https://i.imgur.com/tx4DmXl.png" alt="logo"></img>
-                <li><Link to='/location'>Change Location</Link> </li>
-                <li><Link to='/order'>Order Now</Link> </li>
-                
+            { user?.role === 'owner' || user?.role === 'user' ? <li>Welcome {user.username}</li> : <li><Link to='/login'>Login</Link></li>}
+            { user?.role === 'owner' || user?.role === 'user' ? <li onClick={() => {
+                AuthService.logout().then(data => {
+                    setUser(data.user)
+                    setIsAunthenticated(false)
+                    window.location.reload(false)
+                })
+                .then(navigate=('/'))
+            }}>Logout</li> : null}
+            { user?.role === 'owner' ? <li><Link to='/trucks/new'>Add Your Truck</Link></li> : null}
+            <li><Link to='/'>Noms On Wheels</Link> </li>
+            <img src="https://imgur.com/a/FnUD8mc" alt="logo"></img>
+            <li><Link to='/location'>Change Location</Link> </li>
+            { user?.role === 'owner' || user?.role === 'user' ? null : <li><Link to='/register'>Register</Link></li>}
             </ul>
-            
         </NavBarContainer>
     );
 }

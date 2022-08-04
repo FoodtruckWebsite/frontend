@@ -38,7 +38,7 @@ console.log(truckId)
   return (
     <div>
       <h1>
-        {truck.name}
+        {truck.name} 
         <Button onClick={() => deleteTruck(truck._id)}>Delete</Button>
       </h1>
         
