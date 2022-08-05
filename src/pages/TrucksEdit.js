@@ -5,9 +5,18 @@ import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const StyledForm = styled.form`
-    background-image: url("https://www.animatedimages.org/cat-under-construction-695.htm");
-    background-size: cover;
+const StyledForm = styled.div`
+    background-color: #c1e7f5;
+    margin: 150px 0;
+    padding: 30px;
+    min-height: 70vw;
+
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
 
 `
 
@@ -54,25 +63,29 @@ const TrucksEdit = ({ setTrucks }) => {
 
         <StyledForm onSubmit={handleSubmit}>
             <div>
-                <label htmlFor='name'>Name</label>
-                <input id='name' name='name' type='text' value={formData?.name} onChange={handleChange} />
+                <h2>Edit Truck</h2>
+                <label htmlFor='name'>Name </label>
+                <input id='name' name='name' type='text' value={formData?.name} placeholder={formData?.name} onChange={handleChange} />
             </div>
             <div>
 
-                <label htmlFor='category'>Category</label>
-                <input id='category' name='category' type='text' value={formData?.category} onChange={handleChange}/>
+                <label htmlFor='category'>Category </label>
+                <input id='category' name='category' type='text' value={formData?.category} placeholder={formData?.category} onChange={handleChange}/>
 
             </div>
             <div>
-                <label htmlFor='location'>Location</label>
-                <input id='location' name='location' type='text' value={formData?.location} onChange={handleChange} />
+                <label htmlFor='location'>Location </label>
+                <input id='location' name='location' type='text' value={formData?.location} placeholder={formData?.location} onChange={handleChange} />
             </div>
             <div>
-                <label htmlFor='rating'>Rating</label>
-                <input id='rating' name='rating' type='text' value={formData?.rating} onChange={handleChange} />
+                <label htmlFor='rating'>Rating </label>
+                <input id='rating' name='rating' type='text' value={formData?.rating} placeholder={formData?.rating} onChange={handleChange} />
             </div>
             <input type='submit' value='Update'/>
-
+            <div>
+            <br/>
+            <img src='https://media1.giphy.com/media/lVBtp4SRW6rvDHf1b6/giphy-downsized-large.gif' alt='gif'/>
+            </div>
         </StyledForm>
     )
 }
