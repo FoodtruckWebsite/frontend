@@ -7,18 +7,32 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 const TrucksContainer = styled.div`
-  background-image: url("https://i.imgur.com/tx4DmXl.png");
-  background-repeat: no-repeat;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+    margin: auto;
+    background-image: url("https://cdn.dribbble.com/users/187497/screenshots/3838836/tacotruck_drib.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    min-height: 100vh;
+    background-color: #9DF0F3;
 
-  h1{
-    text-align: center;
-    text-decoration: none;
-    padding: 0%;
+  li{
+    margin-left: 30%;
+  }
+  a.li:link{
+
   }
 
-  h2{
-    text-decoration: none;
-    padding: 0%;
+  a:visited{
+    color: darkred;
+    background-color: #9DF0F3 .5;
+  }
+
+  span{
+    font-size: 45px;
   }
 `
 
@@ -32,10 +46,10 @@ const Trucks = ({trucks}) => {
 
   return (
     <TrucksContainer>
-        <h1>
+        {/* <h1>
             { trucks.map( ( trucks ) => {
                     return <Link to ={`/trucks/${trucks._id}`}>
-                        <h2>{trucks.name}</h2>
+                        <span>{trucks.name}</span><br/>
                         Category: {trucks.category}<br/>
                         Current Location: {trucks.location}<br/>
                         Rating: {trucks.rating}<br/>
@@ -43,7 +57,20 @@ const Trucks = ({trucks}) => {
                         <br/>
                     </Link>
                 })}
-        </h1>
+        </h1> */}
+                <ul>
+            { trucks.map( ( trucks ) => {
+                    return <Link to ={`/trucks/${trucks._id}`}>
+                        <li><span>{trucks.name}</span><br/>
+                        Category: {trucks.category}<br/>
+                        Current Location: {trucks.location}<br/>
+                        Rating: {trucks.rating}<br/>
+                        Price Range: {trucks.priceRange}<br/>
+                        <br/>
+                        </li>
+                    </Link>
+                })}
+        </ul>
     </TrucksContainer>
   )
 }

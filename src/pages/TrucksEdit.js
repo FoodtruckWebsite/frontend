@@ -6,7 +6,8 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 const StyledForm = styled.form`
-
+    background-image: url("https://www.animatedimages.org/cat-under-construction-695.htm");
+    background-size: cover;
 
 `
 
