@@ -22,8 +22,8 @@ const TrucksContainer = styled.div`
   li{
     margin-left: 30%;
   }
-  a.li:link{
-
+  a:link{
+    color: #023020;
   }
 
   a:visited{

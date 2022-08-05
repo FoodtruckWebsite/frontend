@@ -23,6 +23,7 @@ const NavbarContainer = styled.div`
     li{
         list-style: none;
         font-size: 2vw;
+        padding: 4px;
 
     }
     button{
