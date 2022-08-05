@@ -9,6 +9,8 @@ import MakeTruck from './components/MakeTruck';
 import TrucksEdit from './pages/TrucksEdit';
 import Login from './pages/Login'
 import Register from './pages/Register'
+import AboutUs from './pages/AboutUs';
+import Trademark from './pages/Trademark';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -37,6 +39,8 @@ function App() {
           <Route path='/trucks/:truckId/edit' element={ <TrucksEdit trucks = {trucks} setTrucks={setTrucks}/>}/>
           <Route path='/login' element={ <Login />}/>
           <Route path='/register' element={ <Register /> }/>
+          <Route path='/aboutus' element={<AboutUs />}/>
+          <Route path='/trademark' element={<Trademark />}/>
 
       </Routes>
       <Footer></Footer>

@@ -30,8 +30,9 @@ const Footer = () => {
             <ul>
                 
                 <li><Link to='/aboutus'>About Us</Link> </li>
-                <li>MergeConflict &trade;</li>
-                
+
+                <li><Link to='/trademark'>Trademark</Link> </li>
+
   
                 
             </ul>
