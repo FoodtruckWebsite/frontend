@@ -11,7 +11,7 @@ const TrucksContainer = styled.div`
 
 const TrucksCategories = ({trucks}) => {
     return (
-        <div>
+        <TrucksContainer>
             {trucks.map((truck) => {
                 return(
                     <div>
@@ -21,7 +21,7 @@ const TrucksCategories = ({trucks}) => {
             })}
 
             Truck
-        </div>
+        </TrucksContainer>
     );
 }
 
