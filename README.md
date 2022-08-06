@@ -26,7 +26,11 @@ As a user, I would like to see foodtrucks previous locations
 As an owner, I would like to answer reviews
 As an owner, I would like to upload advertisements
 
+##Wireframe
 
 <img width="556" alt="4c2d4a0b-9e2c-476a-a8c2-7cd2567d8fc2(1)" src="https://user-images.githubusercontent.com/74693076/183236061-67fc0afb-be58-449a-a9a4-0a1fcd1b7b51.png">
 
 <img width="558" alt="94121227-d47c-4557-bee0-b52f22e9bb00" src="https://user-images.githubusercontent.com/74693076/183236064-4acd977e-67cb-4da1-965d-57bf799577be.png">
+
+##Technologies Used
+React, bcrypt, express, node, mongoose
