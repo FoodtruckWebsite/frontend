@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react'
-
 import { useParams, useNavigate } from 'react-router-dom'
-
 import axios from 'axios'
 import styled from 'styled-components'
 
@@ -16,6 +14,10 @@ const StyledForm = styled.div`
         margin-left: auto;
         margin-right: auto;
         width: 50%;
+    }
+
+    div{
+        padding-bottom: 5px;
     }
 
 `
@@ -42,7 +44,7 @@ const TrucksEdit = ({ setTrucks }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
-        axios.put(`http://localhost:8000/truck/edit/${truckId}`,formData)
+        axios.put(`http://localhost:8000/truck/${truckId}`,formData)
         .then(res => {
             setFormData(initialState)
             setTrucks(res.data)
@@ -53,7 +55,7 @@ const TrucksEdit = ({ setTrucks }) => {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:8000/trucks/edit/${truckId}`)
+        axios.get(`http://localhost:8000/truck/${truckId}`)
         .then(res => {
             setFormData(res.data)
         })

@@ -6,7 +6,43 @@ import { alignPropType } from 'react-bootstrap/esm/types'
 import styled from 'styled-components'
 
 const Button = styled.button`
+  margin-right: 60px;
+  margin-left: 10px;
 `
+
+const TruckContainer = styled.div`
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+    margin: auto;
+    background-image: url("https://cdn.dribbble.com/users/187497/screenshots/3838836/tacotruck_drib.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    min-height: 100vh;
+    background-color: #9DF0F3;
+
+  h1{
+
+    font-weight: bold;
+    margin-left: 30%;
+    padding-top: 30px;
+
+  }
+
+  h2{
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+span{
+  padding: 0 15px 0 15px;
+  color: #FFFDD0;
+  background-color: darkred;
+}
+`
+
 
 
 
@@ -41,28 +77,35 @@ console.log(truck.menu)
 // const newJoin = truck.menu.join()
 // console.log(newJoin)
   return (
-    <div>
+    <TruckContainer>
       <h1>
-        {truck.name} 
+        <span>{truck.name}</span>
+        <h2>
+          Category {truck.catagory}<br/>
+          Rating {truck.rating}<br/>
+          Price Range {truck.priceRange}<br/>
+          Location {truck.location}
+        </h2>
+         
         {/* {truck.menu[0].itemName}
         {truck.menu[1].itemName} */}
         {isAuthenticated === true && user?.role === 'owner' ? <Button onClick={() => deleteTruck(truck._id)}>Delete</Button> : null}
         {isAuthenticated === true && user?.role === 'owner' ? <Link to='edit'><Button>Update Info</Button></Link> : null}
       </h1>
         
-    </div>
+    </TruckContainer>
   )
 }
 
 export default Truck
 
-        // <tr key={trucks.id} >
-        //     <td>{trucks.name}</td>
-        //     <td>{trucks.catagory}</td>
-        //     <td>{trucks.tags}</td>
-        //     <td>{trucks.rating}</td>
-        //     <td>{trucks.menu}</td>
-        //     <td>{trucks.priceRange}</td>
-        //     <td>{trucks.location}</td>
-        //     <td>{trucks.logo}</td>
-        // </tr>
+      //  {trucks.id} >
+      //       {trucks.name}
+      //       {truck.catagory}
+      //       {truck.tags}
+      //       {truck.rating}
+      //       {truck.menu}
+      //       {truck.priceRange}
+      //       {truck.location}
+      //       {truck.logo}
+ 
