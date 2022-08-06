@@ -13,6 +13,7 @@ import AboutUs from './pages/AboutUs';
 import Trademark from './pages/Trademark';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import AuthProvider from './services/AuthContext'
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
   
   return (
     <div>
-      <Navbar></Navbar>
+      <AuthProvider>
+      <Navbar/>
       <Routes>
           <Route path='/' element={ <Home trucks = {trucks}/>}/>
           <Route path='/trucks/:truckId' element={ <Truck trucks = {trucks} setTrucks={setTrucks}/>}/>
@@ -43,7 +45,8 @@ function App() {
           <Route path='/trademark' element={<Trademark />}/>
 
       </Routes>
-      <Footer></Footer>
+      <Footer/>
+      </AuthProvider>
     </div>
   );
 }

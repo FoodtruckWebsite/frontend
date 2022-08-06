@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const StyledForm = styled.div`
+const StyledForm = styled.form`
     background-color: #c1e7f5;
     margin: 150px 0;
     padding: 30px;
@@ -43,8 +43,8 @@ const TrucksEdit = ({ setTrucks }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData)
-        axios.put(`http://localhost:8000/truck/${truckId}`,formData)
+        console.log('im working on submit')
+        axios.put(`http://localhost:8000/truck/edit/${truckId}`,formData)
         .then(res => {
             setFormData(initialState)
             setTrucks(res.data)
@@ -82,6 +82,10 @@ const TrucksEdit = ({ setTrucks }) => {
             <div>
                 <label htmlFor='rating'>Rating </label>
                 <input id='rating' name='rating' type='text' value={formData?.rating} placeholder={formData?.rating} onChange={handleChange} />
+            </div>
+            <div>
+                <label htmlFor='priceRange'>Price Range </label>
+                <input id='priceRange' name='priceRange' type='text' value={formData?.priceRange} placeholder={formData?.rating} onChange={handleChange} />
             </div>
             <input type='submit' value='Update'/>
             <div>
